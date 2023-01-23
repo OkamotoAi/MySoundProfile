@@ -33,7 +33,7 @@ require "class.php";
           Home
         </a>
 
-        <a class="navbar-item">
+        <a class="navbar-item" href="feature.php">
           Feature
         </a>
 
@@ -77,23 +77,46 @@ require "class.php";
 
 
   <h3 class="title m-5">お気に入りした曲一覧</h3>
-  <a href="class.php?task=getSaved" class="button is-primary m-5"> 楽曲を取得する</a>
 
   <?php
   $all = disp_savedSongs();
   ?>
-  <div class="columns">
-    <table class="table is-narrow is-hoverable m-5 column is-11">
+  <div class="table-container">
+    <table class="table is-narrow is-hoverable m-5">
       <tr>
-        <th width=10%>ID</th>
-        <th width=45%>曲名</th>
-        <th width=45%>アーティスト</th>
+        <th>曲名</th>
+        <th>アーティスト</th>
+        <th>人気</th>
+        <th>キー</th>
+        <th>調</th>
+        <th>踊りやすさ</th>
+        <th>アコースティック</th>
+        <th>Energy</th>
+        <th>インスト</th>
+        <th>ライブ感</th>
+        <th>音圧</th>
+        <th>スピーチ感</th>
+        <th>テンポ</th>
+        <th>拍子</th>
+        <th>ポジティブ</th>
       </tr>
       <?php foreach ($all as $row) { ?>
         <tr>
-          <td><?= $row["music_id"] ?></td>
           <td><?= $row["name"] ?></td>
           <td><?= $row["artist"] ?></td>
+          <td><?= $row["popularity"] ?></td>
+          <td><?= $row["scale"] ?></td>
+          <td><?= $row["mode"] ?></td>
+          <td><?= $row["danceability"] ?></td>
+          <td><?= $row["acousticness"] ?></td>
+          <td><?= $row["energy"] ?></td>
+          <td><?= $row["instrumentalness"] ?></td>
+          <td><?= $row["liveness"] ?></td>
+          <td><?= $row["loudness"] ?></td>
+          <td><?= $row["speechiness"] ?></td>
+          <td><?= $row["tempo"] ?></td>
+          <td><?= $row["time_signature"] ?></td>
+          <td><?= $row["valence"] ?></td>
         </tr>
       <?php } ?>
     </table>

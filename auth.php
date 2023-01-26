@@ -2,8 +2,6 @@
 require __DIR__ . '/vendor/autoload.php';
 Dotenv\Dotenv::createImmutable(__DIR__)->load();
 
-$GLOBALS = [];
-
 $session = new SpotifyWebAPI\Session(
   $_ENV['SPOTIFY_CLIENT_ID'],
   $_ENV['SPOTIFY_CLIENT_SECRET'],

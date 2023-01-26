@@ -8,8 +8,8 @@ $api->setAccessToken($_GET['accessToken']);
 $conn = db_conn();
 
 $tracks = $api->getMySavedTracks([
-  'limit' => 8,
-  'offset' => 0
+  'limit' => 5,
+  'offset' => 5,
 ]);
 
 foreach ($tracks->items as $track) {

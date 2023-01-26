@@ -10,17 +10,23 @@ require "class.php";
   <meta charset="UTF-8">
   <title>><?= APPNAME ?></title>
   <link rel="stylesheet" href="../bulma/css/bulma.min.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/feature.css">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav class="navbar" role="navigation"
+    aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://bulma.io">
-        <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+        <img src="https://bulma.io/images/bulma-logo.png"
+          width="112" height="28">
       </a>
 
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <a role="button" class="navbar-burger"
+        aria-label="menu" aria-expanded="false"
+        data-target="navbarBasicExample">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -29,7 +35,7 @@ require "class.php";
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item">
+        <a class="navbar-item" href="main.php">
           Home
         </a>
 
@@ -60,18 +66,6 @@ require "class.php";
         </div>
       </div>
 
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-primary">
-              <strong>Sign up</strong>
-            </a>
-            <a class="button is-light">
-              Log in
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
   </nav>
 
@@ -86,38 +80,38 @@ require "class.php";
       <tr>
         <th>曲名</th>
         <th>アーティスト</th>
-        <th>人気</th>
-        <th>キー</th>
-        <th>調</th>
-        <th>踊りやすさ</th>
-        <th>アコースティック</th>
-        <th>Energy</th>
-        <th>インスト</th>
-        <th>ライブ感</th>
-        <th>音圧</th>
-        <th>スピーチ感</th>
-        <th>テンポ</th>
-        <th>拍子</th>
-        <th>ポジティブ</th>
+        <th class="v">人気</th>
+        <th class="v">キー</th>
+        <th class="v">調</th>
+        <th class="v">踊りやすさ</th>
+        <th class="v">アコースティック</th>
+        <th class="v">エネルギー</th>
+        <th class="v">インスト</th>
+        <th class="v">ライブ感</th>
+        <th class="v">音圧</th>
+        <th class="v">スピーチ感</th>
+        <th class="v">テンポ</th>
+        <th class="v">拍子</th>
+        <th class="v">ポジティブ</th>
       </tr>
       <?php foreach ($all as $row) { ?>
-        <tr>
-          <td><?= $row["name"] ?></td>
-          <td><?= $row["artist"] ?></td>
-          <td><?= $row["popularity"] ?></td>
-          <td><?= $row["scale"] ?></td>
-          <td><?= $row["mode"] ?></td>
-          <td><?= $row["danceability"] ?></td>
-          <td><?= $row["acousticness"] ?></td>
-          <td><?= $row["energy"] ?></td>
-          <td><?= $row["instrumentalness"] ?></td>
-          <td><?= $row["liveness"] ?></td>
-          <td><?= $row["loudness"] ?></td>
-          <td><?= $row["speechiness"] ?></td>
-          <td><?= $row["tempo"] ?></td>
-          <td><?= $row["time_signature"] ?></td>
-          <td><?= $row["valence"] ?></td>
-        </tr>
+      <tr>
+        <td><?= $row["name"] ?></td>
+        <td><?= $row["artist"] ?></td>
+        <td><?= $row["popularity"] ?></td>
+        <td><?= $row["scale"] ?></td>
+        <td><?= $row["mode"] ?></td>
+        <td><?= $row["danceability"] ?></td>
+        <td><?= $row["acousticness"] ?></td>
+        <td><?= $row["energy"] ?></td>
+        <td><?= $row["instrumentalness"] ?></td>
+        <td><?= $row["liveness"] ?></td>
+        <td><?= $row["loudness"] ?></td>
+        <td><?= $row["speechiness"] ?></td>
+        <td><?= $row["tempo"] ?></td>
+        <td><?= $row["time_signature"] ?></td>
+        <td><?= $row["valence"] ?></td>
+      </tr>
       <?php } ?>
     </table>
 

@@ -2,58 +2,6 @@
 require __DIR__ . '/vendor/autoload.php';
 require "config.php";
 
-// https://developer.spotify.com/console/get-current-user-saved-tracks/?market=JP&limit=&offset=
-//  これでお気にいりした曲がとれる
-// market:JP
-// https://developer.spotify.com/documentation/web-api/reference/#/operations/get-users-top-artists-and-tracks
-// これもつかえるかも 
-
-if (isset($_GET['task']) == 'getSaved') {
-  addSavedTracksToDB();
-}
-
-
-
-// お気に入りした曲を取得，DBに登録する
-function addSavedTracksToDB()
-{
-  $api = getSpotifyToken();
-  $conn = db_conn();
-
-  $tracks = $api->getMySavedTracks([
-    'limit' => 5,
-    'offset' => 0
-  ]);
-
-  // $features = $api->getMultipleAudioFeatures($tracks);
-
-  foreach ($tracks->items as $track) {
-    $track = $track->track;
-    $features = $api->getAudioFeatures($track->id);
-
-    $sql = "INSERT INTO music VALUES (";
-    $sql .= "'" . cnv_sqlstr($track->id) . "',";
-    $sql .= "'" . cnv_sqlstr($track->name) . "',";
-    $sql .=  "'" . cnv_sqlstr($track->artists[0]->name) . "',";
-    $sql .=  "'" . cnv_sqlstr($track->popularity) . "',";
-    $sql .=  "'" . cnv_sqlstr($features->danceability) . "',";
-    $sql .=  "'" . cnv_sqlstr($features->energy) . "',";
-    $sql .=  "'" . cnv_sqlstr($features->key) . "',";
-    $sql .=  "'" . cnv_sqlstr($features->loudness) . "',";
-    $sql .=  "'" . cnv_sqlstr($features->mode) . "',";
-    $sql .=  "'" . cnv_sqlstr($features->speechiness) . "',";
-    $sql .=  "'" . cnv_sqlstr($features->acousticness) . "',";
-    $sql .=  "'" . cnv_sqlstr($features->instrumentalness) . "',";
-    $sql .=  "'" . cnv_sqlstr($features->liveness) . "',";
-    $sql .=  "'" . cnv_sqlstr($features->valence) . "',";
-    $sql .=  "'" . cnv_sqlstr($features->tempo) . "',";
-    $sql .=  "'" . cnv_sqlstr($features->time_signature) . "'";
-    $sql .= ")";
-
-    $res = db_query($sql, $conn);
-  }
-}
-
 // お気に入りした曲を表示する
 function disp_savedSongs()
 {
@@ -67,8 +15,27 @@ function disp_savedSongs()
     return;
   } else {
     $all = $res->fetch_all(MYSQLI_ASSOC);
-  }
+    //小数点第2位まで．0はとる
+    foreach ($all as &$row) {
+      $row["name"] =  $row["name"];
+      $row["artist"] = $row["artist"];
+      $row["popularity"] = $row["popularity"];
+      $row["scale"] = $row["scale"];
+      $row["mode"] = $row["mode"];
+      $row["danceability"] = preg_replace("/\.?0+$/", "", number_format($row["danceability"], 2));
+      $row["acousticness"] = preg_replace("/\.?0+$/", "", number_format($row["acousticness"], 2));
+      $row["energy"] = preg_replace("/\.?0+$/", "", number_format($row["energy"], 2));
+      $row["instrumentalness"] = preg_replace("/\.?0+$/", "", number_format($row["instrumentalness"], 2));
+      $row["liveness"] = preg_replace("/\.?0+$/", "", number_format($row["liveness"], 2));
+      $row["loudness"] = preg_replace("/\.?0+$/", "", number_format($row["loudness"], 2));
+      $row["speechiness"] = preg_replace("/\.?0+$/", "", number_format($row["speechiness"], 2));
+      $row["tempo"] = preg_replace("/\.?0+$/", "", number_format($row["tempo"]));
+      $row["time_signature"] = $row["time_signature"];
+      $row["valence"] = preg_replace("/\.?0+$/", "", number_format($row["valence"], 2));
+    }
+
   return $all;
+  }
 }
 
 // 文字コード変換

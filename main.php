@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
-require "class.php";
-require "config.php";
+require_once "class.php";
+require_once "config.php";
 ?>
 
 <!DOCTYPE html>
@@ -35,11 +35,11 @@ require "config.php";
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item">
+        <a class="navbar-item" href="main.php">
           Home
         </a>
 
-        <a class="navbar-item">
+        <a class="navbar-item" href="feature.php">
           Feature
         </a>
 
@@ -66,18 +66,6 @@ require "config.php";
         </div>
       </div>
 
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-primary">
-              <strong>Sign up</strong>
-            </a>
-            <a class="button is-light">
-              Log in
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
   </nav>
 

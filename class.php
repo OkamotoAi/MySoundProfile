@@ -1,7 +1,6 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 require "config.php";
-require "auth.php";
 
 // https://developer.spotify.com/console/get-current-user-saved-tracks/?market=JP&limit=&offset=
 //  これでお気にいりした曲がとれる

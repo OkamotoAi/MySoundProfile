@@ -86,8 +86,8 @@ require "class.php";
   <div class="table-container">
     <table class="table is-narrow is-hoverable m-5">
       <tr>
-        <th>曲名</th>
-        <th>アーティスト</th>
+        <th class="b">曲名</th>
+        <th class="b">アーティスト</th>
         <th class="v">人気 <span class="icon has-text-info">
             <i class="fas fa-info-circle"></i>
             <p class="tooltip">

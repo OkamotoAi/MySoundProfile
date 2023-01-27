@@ -1,10 +1,13 @@
-.table th{
-  text-align: right !important;
-}
-
 .v{
+  text-align: right !important;
   writing-mode: vertical-rl;
 
+}
+
+.b{
+  display:table-cell; 
+  vertical-align:bottom !important;
+  text-align: left !important;
 }
 
 .has-text-info{

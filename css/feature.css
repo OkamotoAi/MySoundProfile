@@ -1,3 +1,48 @@
+.table th{
+  text-align: right !important;
+}
+
 .v{
   writing-mode: vertical-rl;
+
+}
+
+.has-text-info{
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.fa-info-circle{
+    margin:0;
+    padding:0;
+}
+.tooltip {
+    display: none;
+    position: absolute;
+    padding: 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    width: 150px;
+    writing-mode:horizontal-tb;
+    text-align: center;
+    box-shadow: 0 1em 2em -.5em rgba(0, 0, 0, 0.35);
+    background: #333;
+    color: #fff;
+
+
+}
+.tooltip:before {
+    content: "";
+    position: absolute;
+    top: -24px;
+    left: 60px;
+    border: 15px solid transparent;
+    border-top: 15px solid #333;
+    transform: rotateZ(180deg);
+}
+.has-text-info:hover .tooltip{
+    display: inline-block;
+    top: 35px;
+    right: -63px;
 }

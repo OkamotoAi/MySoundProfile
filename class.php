@@ -11,7 +11,7 @@ function disp_savedSongs()
 
   $res = db_query($sql, $conn);
   if ($res == false) {
-    echo "<p>データは登録されていません";
+    // echo "<p>データは登録されていません";
     return;
   } else {
     $all = $res->fetch_all(MYSQLI_ASSOC);
@@ -36,6 +36,37 @@ function disp_savedSongs()
 
   return $all;
   }
+}
+
+function calc_feature_average()
+{
+  $conn = db_conn();
+  $sql = "SELECT AVG(`popularity`),AVG(`danceability`),AVG(`energy`),AVG(`scale`),AVG(`loudness`),AVG(`mode`),AVG(`speechiness`),AVG(`acousticness`),AVG(`instrumentalness`),AVG(`liveness`),AVG(`valence`),AVG(`tempo`),AVG(`time_signature`) FROM `music`";
+
+  $res = db_query($sql, $conn);
+
+  if ($res == false) {
+    // echo "<p>データは登録されていません";
+    return;
+  } else {
+    $ave = $res->fetch_all(MYSQLI_ASSOC);
+    foreach ($ave as &$row) {
+      $row["AVG(`popularity`)"] = preg_replace("/\.?0+$/", "", number_format($row["AVG(`popularity`)"]));
+      $row["AVG(`scale`)"] = preg_replace("/\.?0+$/", "", number_format($row["AVG(`scale`)"]));
+      $row["AVG(`mode`)"] = preg_replace("/\.?0+$/", "", number_format($row["AVG(`mode`)"]));
+      $row["AVG(`danceability`)"] = preg_replace("/\.?0+$/", "", number_format($row["AVG(`danceability`)"], 2));
+      $row["AVG(`acousticness`)"] = preg_replace("/\.?0+$/", "", number_format($row["AVG(`acousticness`)"], 2));
+      $row["AVG(`energy`)"] = preg_replace("/\.?0+$/", "", number_format($row["AVG(`energy`)"], 2));
+      $row["AVG(`instrumentalness`)"] = preg_replace("/\.?0+$/", "", number_format($row["AVG(`instrumentalness`)"], 2));
+      $row["AVG(`liveness`)"] = preg_replace("/\.?0+$/", "", number_format($row["AVG(`liveness`)"], 2));
+      $row["AVG(`loudness`)"] = preg_replace("/\.?0+$/", "", number_format($row["AVG(`loudness`)"], 2));
+      $row["AVG(`speechiness`)"] = preg_replace("/\.?0+$/", "", number_format($row["AVG(`speechiness`)"], 2));
+      $row["AVG(`tempo`)"] = preg_replace("/\.?0+$/", "", number_format($row["AVG(`tempo`)"]));
+      $row["AVG(`time_signature`)"] = preg_replace("/\.?0+$/", "", number_format($row["AVG(`time_signature`)"]));
+      $row["AVG(`valence`)"] = preg_replace("/\.?0+$/", "", number_format($row["AVG(`valence`)"], 2));
+    }
+  }
+  return $ave;
 }
 
 // 文字コード変換

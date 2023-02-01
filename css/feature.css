@@ -1,7 +1,8 @@
 .v{
   text-align: right !important;
   writing-mode: vertical-rl;
-
+  white-space: nowrap;
+  line-height: 1em;
 }
 
 .b{
@@ -35,6 +36,7 @@
 
 
 }
+
 .tooltip:before {
     content: "";
     position: absolute;

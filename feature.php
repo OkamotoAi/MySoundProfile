@@ -82,6 +82,7 @@ require "class.php";
 
   <?php
   $all = disp_savedSongs();
+  $ave = calc_feature_average();
   ?>
   <div class="table-container">
     <table class="table is-narrow is-hoverable m-5">
@@ -169,6 +170,41 @@ require "class.php";
               0.0から1.0までの値で、楽曲が伝える音楽的なポジティブさを表現します。値が高いトラックはよりポジティブに聞こえ（例：幸せ、陽気、多幸感）、値が低いトラックはよりネガティブに聞こえる（例：悲しい、落ち込む、怒る）。
             </p>
           </span></th>
+      </tr>
+      <tr>
+        <td class="has-text-weight-semibold">平均値</td>
+        <td></td>
+        <td><?= $ave[0]["AVG(`popularity`)"] ?></td>
+        <td><?= $ave[0]["AVG(`scale`)"] ?></td>
+        <td><?= $ave[0]["AVG(`mode`)"] ?></td>
+        <td><?= $ave[0]["AVG(`danceability`)"] ?></td>
+        <td><?= $ave[0]["AVG(`acousticness`)"] ?></td>
+        <td><?= $ave[0]["AVG(`energy`)"] ?></td>
+        <td><?= $ave[0]["AVG(`instrumentalness`)"] ?></td>
+        <td><?= $ave[0]["AVG(`liveness`)"] ?></td>
+        <td><?= $ave[0]["AVG(`loudness`)"] ?></td>
+        <td><?= $ave[0]["AVG(`speechiness`)"] ?></td>
+        <td><?= $ave[0]["AVG(`tempo`)"] ?></td>
+        <td><?= $ave[0]["AVG(`time_signature`)"] ?></td>
+        <td><?= $ave[0]["AVG(`valence`)"] ?></td>
+      </tr>
+      <!-- 区切りのため -->
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <?php foreach ($all as $row) { ?>
       <tr>

@@ -9,12 +9,12 @@ require "class.php";
 <head>
   <meta charset="UTF-8">
   <title>><?= APPNAME ?></title>
-  <link rel="stylesheet" href="../bulma/css/bulma.min.css">
-  <link rel="stylesheet" href="./css/feature.css">
+  <link rel="stylesheet" href="./bulma/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/feature.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="../fontawesome-free-6.2.1-web/css/fontawesome.css" rel="stylesheet">
-  <link href="../fontawesome-free-6.2.1-web/css/brands.css" rel="stylesheet">
-  <link href="../fontawesome-free-6.2.1-web/css/solid.css" rel="stylesheet">
+  <link href="./fontawesome-free-6.2.1-web/css/fontawesome.css" rel="stylesheet">
+  <link href="./fontawesome-free-6.2.1-web/css/brands.css" rel="stylesheet">
+  <link href="./fontawesome-free-6.2.1-web/css/solid.css" rel="stylesheet">
 
 </head>
 
@@ -22,7 +22,7 @@ require "class.php";
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="main.php">
-        <img src="./css/logo.png" width="200">
+        <img src="./static/logo.png" width="200">
       </a>
 
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">

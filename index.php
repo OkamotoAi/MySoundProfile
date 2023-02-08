@@ -17,7 +17,7 @@ require_once "config.php";
 <body>
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="main.php">
+      <a class="navbar-item" href="index.php">
         <img src="./static/logo.png" width="200">
       </a>
 
@@ -30,7 +30,7 @@ require_once "config.php";
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item" href="main.php">
+        <a class="navbar-item" href="index.php">
           Home
         </a>
 

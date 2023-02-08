@@ -3,6 +3,10 @@
 # MySoundProfile
 Spotifyの楽曲リストから自分の好みを把握する
 
+```
+$ conposer install
+```
+
 # 実装済み機能
 - お気に入りした曲を取得しDBに登録する
 - これまで取得した曲を表示する
